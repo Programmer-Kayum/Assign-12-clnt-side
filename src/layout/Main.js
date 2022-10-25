@@ -11,7 +11,7 @@ const Main = () => {
         <div className="w-3/12">
           <LeftSide></LeftSide>
         </div>
-        <div className="w-9/12">
+        <div className="9/12">
           <Outlet></Outlet>
         </div>
       </div>

@@ -1,9 +1,10 @@
 import React from "react";
+import Login from "../../secreteRoom/Login/Login";
 
 const Home = () => {
   return (
     <div>
-      <h3>This is home </h3>
+      <Login></Login>
     </div>
   );
 };
