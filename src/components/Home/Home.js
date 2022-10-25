@@ -4,7 +4,7 @@ import Login from "../../secreteRoom/Login/Login";
 const Home = () => {
   return (
     <div>
-      <Login></Login>
+      <h2>This is home page</h2>
     </div>
   );
 };

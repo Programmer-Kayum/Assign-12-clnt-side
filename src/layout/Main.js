@@ -7,14 +7,7 @@ const Main = () => {
   return (
     <div>
       <Header></Header>
-      <div className="flex  mx-20 my-10">
-        <div className="w-2/12">
-          <LeftSide></LeftSide>
-        </div>
-        <div className="w-full">
-          <Outlet></Outlet>
-        </div>
-      </div>
+      <Outlet></Outlet>
     </div>
   );
 };

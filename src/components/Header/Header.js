@@ -1,16 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { FaUser } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <div className="lg:bg-gradient-to-r from-cyan-500 to-blue-500 lg:text-2xl">
+    // <div className="lg:bg-gradient-to-r from-cyan-400 to-blue-400 lg:text-2xl">
+    <div className=" lg:text-2xl">
       <div className="px-4 py-5  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-4">
         <div className="relative flex items-center justify-between">
           <NavLink
             to="/"
-            aria-label="proReader"
-            title="proReader"
+            aria-label="edXprogramming"
+            title="edXprogramming"
             className="inline-flex items-center"
           >
             <svg
@@ -108,20 +117,42 @@ const Header = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink
-                to="/login"
-                aria-label="Login"
-                title="Login"
-                className={({ isActive }) =>
-                  isActive
-                    ? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                    : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                }
-              >
-                Login
+              <NavLink>
+                <>
+                  {user?.uid ? (
+                    <>
+                      <div
+                        className="text-2xl font-bold"
+                        onClick={handleLogOut}
+                      >
+                        Log out
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <NavLink to="/login">
+                        <span className="text-2xl font-bold">Login</span>{" "}
+                      </NavLink>
+                    </>
+                  )}
+                </>
               </NavLink>
             </li>
+            <li>
+              <>
+                {user?.photoURL ? (
+                  <div className="bg-red-500">
+                    <image src={user.photoURL}></image>
+                  </div>
+                ) : (
+                  <FaUser></FaUser>
+                )}
+              </>
+            </li>
           </ul>
+
+          {/* ---------------------- */}
+
           <div className="lg:hidden">
             <button
               aria-label="Open Menu"
@@ -151,8 +182,8 @@ const Header = () => {
                     <div>
                       <NavLink
                         to="/"
-                        aria-label="proReader"
-                        title="proReader"
+                        aria-label="edXprogramming"
+                        title="edXprogramming"
                         className="inline-flex items-center"
                       >
                         <svg
@@ -269,17 +300,31 @@ const Header = () => {
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink
-                          to="/login"
-                          aria-label="Login"
-                          title="Login"
-                          className={({ isActive }) =>
-                            isActive
-                              ? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                              : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          }
-                        >
-                          Login
+                        <NavLink>
+                          <>
+                            {user?.uid ? (
+                              <>
+                                <p onClick={handleLogOut}>Log out</p>
+                              </>
+                            ) : (
+                              <>
+                                <NavLink to="/login">Login</NavLink>
+                              </>
+                            )}
+                          </>
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink>
+                          {user?.photoURL2 ? (
+                            <image
+                              style={{ height: "30px" }}
+                              roundedCircle
+                              src={user?.photoURL}
+                            ></image>
+                          ) : (
+                            <FaUser></FaUser>
+                          )}
                         </NavLink>
                       </li>
                     </ul>

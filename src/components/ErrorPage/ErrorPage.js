@@ -5,7 +5,7 @@ import Header from "../Header/Header";
 const ErrorPage = () => {
   const error = useRouteError();
   return (
-    <div className="bg-gradient-to-r from-sky-500 to-indigo-500 pb-28">
+    <div className="bg-gradient-to-r from-sky-300 to-indigo-300 pb-28">
       <Header></Header>
 
       <div className="flex flex-col min-h-[500px] my-10 lg:w-1/2  lg:mx-auto justify-center shadow-2xl bg-gradient-to-r from-purple-500 to-pink-500 rounded-3xl  items-center w-11/12 mx-auto">
@@ -13,7 +13,7 @@ const ErrorPage = () => {
         <br />
         {error && (
           <div>
-            <p className="text-red-500 text-3xl">
+            <p className="text-white text-3xl">
               {error.statusText || error.message}
             </p>
             <p className="text-3xl">{error.status}</p>

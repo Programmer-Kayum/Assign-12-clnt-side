@@ -1,18 +1,36 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { FaBeer, FaGithub, FaGoogle } from "react-icons/fa";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../Context/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
-  const { providerLogin } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const { providerLogin, login } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+
+    if (email && password) {
+      login(email, password)
+        .then((result) => {
+          const user = result.user;
+          console.log(user);
+          setError("");
+          form.reset();
+          navigate(from, { replace: true });
+        })
+        .catch((e) => {
+          console.error(e);
+          setError(e.message);
+        });
+    }
   };
   const handleGoogleSignIn = () => {
     const googleProvider = new GoogleAuthProvider();
@@ -29,6 +47,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        // <Navigate to="/home"></Navigate>
       })
       .catch((e) => console.error(e));
   };
@@ -79,7 +98,7 @@ const Login = () => {
               <div className="form-control mt-6 mb-2">
                 <button className="btn btn-primary">Login</button>
               </div>
-
+              <div className="text-red-500">{error}</div>
               <hr />
               <p className="ml-4">or</p>
               <hr />
