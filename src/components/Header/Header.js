@@ -14,7 +14,7 @@ const Header = () => {
             className="inline-flex items-center"
           >
             <svg
-              className="w-8 text-blue-400"
+              className="w-8 text-blck"
               viewBox="0 0 24 24"
               strokeLinejoin="round"
               strokeWidth="2"

@@ -8,7 +8,7 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(form, email, password);
+    console.log(email, password);
   };
   return (
     <div>
@@ -44,9 +44,9 @@ const Login = () => {
                 />
                 <label className="label">
                   <p>
-                    If you new?{" "}
+                    If you new?
                     <Link
-                      className="label-text-alt link link-hover hover:bg-orange-700"
+                      className="label-text-alt link link-hover text-lg ml-2 text-blue-600 px-2 hover:text-orange-700"
                       to="/register"
                     >
                       Register Now

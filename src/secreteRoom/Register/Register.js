@@ -5,9 +5,11 @@ const Register = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(form, email, password);
+    const password2 = form.confrimPassword.value;
+    console.log(name, email, password, password2);
   };
   return (
     <div>
@@ -81,7 +83,7 @@ const Register = () => {
                   <p>
                     Already Registered?
                     <Link
-                      className="label-text-alt link link-hover text-lg hover:bg-orange-700"
+                      className="label-text-alt link link-hover text-lg text-blue-500 ml-2 px-2 hover:text-orange-700"
                       to="/login"
                     >
                       Log in
