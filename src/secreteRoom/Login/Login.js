@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaBeer, FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   const handleSubmit = (event) => {
@@ -10,8 +11,8 @@ const Login = () => {
     console.log(form, email, password);
   };
   return (
-    <div className="bg-sky-200">
-      <div className="hero min-h-screen bg-gray-500">
+    <div>
+      <div className="hero min-h-screen bg-gradient-to-r from-violet-500 to-fuchsia-500">
         <div className="hero-content flex-col ">
           <div className="text-center ">
             <h1 className="text-4xl pb-5 font-bold">Please Login now!!</h1>
@@ -53,10 +54,32 @@ const Login = () => {
                   </p>
                 </label>
               </div>
-              <div className="form-control mt-6">
+              <div className="form-control mt-6 mb-2">
                 <button className="btn btn-primary">Login</button>
               </div>
+
+              <hr />
+              <p className="ml-4">or</p>
+              <hr />
             </form>
+            {/* google authentication */}
+
+            <div className="form-control mx-3">
+              <button className="btn border-t-indigo-500 hover:bg-orange-500">
+                <FaGoogle /> <h2 className="ml-3">Login with Google</h2>
+              </button>
+            </div>
+            {/* ------------------- */}
+
+            {/* GitHub Authentication */}
+
+            <div className="form-control m-3">
+              <button className="btn btn-black  hover:bg-orange-500">
+                <FaGithub /> <h2 className="ml-3">Login with Github</h2>
+              </button>
+            </div>
+
+            {/* ---------- */}
           </div>
         </div>
       </div>

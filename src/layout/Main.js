@@ -7,11 +7,11 @@ const Main = () => {
   return (
     <div>
       <Header></Header>
-      <div className="grid grid-cols-2 mx-20 my-10">
-        <div className="w-3/12">
+      <div className="flex  mx-20 my-10">
+        <div className="w-2/12">
           <LeftSide></LeftSide>
         </div>
-        <div className="9/12">
+        <div className="w-full">
           <Outlet></Outlet>
         </div>
       </div>

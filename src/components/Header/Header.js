@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <div className="lg:bg-[#50d71e] lg:text-2xl">
+    <div className="lg:bg-gradient-to-r from-cyan-500 to-blue-500 lg:text-2xl">
       <div className="px-4 py-5  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-4">
         <div className="relative flex items-center justify-between">
           <NavLink
