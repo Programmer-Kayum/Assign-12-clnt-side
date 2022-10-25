@@ -1,14 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaBeer, FaGithub, FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../../Context/AuthProvider";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
+  const { providerLogin } = useContext(AuthContext);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+  };
+  const handleGoogleSignIn = () => {
+    const googleProvider = new GoogleAuthProvider();
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((e) => console.error(e));
+  };
+  const handleGithubSignIn = () => {
+    const githubProvider = new GithubAuthProvider();
+    providerLogin(githubProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((e) => console.error(e));
   };
   return (
     <div>
@@ -46,7 +68,7 @@ const Login = () => {
                   <p>
                     If you new?
                     <Link
-                      className="label-text-alt link link-hover text-lg ml-2 text-blue-600 px-2 hover:text-orange-700"
+                      className="label-text-alt link link-hover text-lg ml-2 text-blue-600 px-2 hover:text-orange-700<App />"
                       to="/register"
                     >
                       Register Now
@@ -65,7 +87,10 @@ const Login = () => {
             {/* google authentication */}
 
             <div className="form-control mx-3">
-              <button className="btn border-t-indigo-500 hover:bg-orange-500">
+              <button
+                onClick={handleGoogleSignIn}
+                className="btn border-t-indigo-500 hover:bg-orange-500"
+              >
                 <FaGoogle /> <h2 className="ml-3">Login with Google</h2>
               </button>
             </div>
@@ -74,7 +99,10 @@ const Login = () => {
             {/* GitHub Authentication */}
 
             <div className="form-control m-3">
-              <button className="btn btn-black  hover:bg-orange-500">
+              <button
+                onClick={handleGithubSignIn}
+                className="btn btn-black  hover:bg-orange-500"
+              >
                 <FaGithub /> <h2 className="ml-3">Login with Github</h2>
               </button>
             </div>
