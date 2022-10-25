@@ -24,11 +24,10 @@ export const router = createBrowserRouter([
       },
       {
         path: "/courses",
-        element: (
-          <PrivateRoute>
-            <Courses></Courses>
-          </PrivateRoute>
-        ),
+        element: <Courses></Courses>,
+        loader: async () => {
+          return fetch("http://localhost:5000/alltopics");
+        },
       },
       {
         path: "/blog",
