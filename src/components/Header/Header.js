@@ -12,9 +12,9 @@ const Header = () => {
   };
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    // <div className="lg:bg-gradient-to-r from-cyan-400 to-blue-400 lg:text-2xl">
-    <div className=" lg:text-2xl">
-      <div className="px-4 py-5  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-4">
+    <div className="lg:bg-gradient-to-r from-cyan-400 to-blue-400 lg:text-2xl">
+      {/* // <div className=" lg:text-2xl"> */}
+      <div className="px-2 py-5  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-2">
         <div className="relative flex items-center justify-between">
           <NavLink
             to="/"
@@ -139,10 +139,17 @@ const Header = () => {
               </NavLink>
             </li>
             <li>
+              <small className="font-bold">{user?.displayName}</small>{" "}
+            </li>
+            <li>
               <>
                 {user?.photoURL ? (
-                  <div className="bg-red-500">
-                    <image src={user.photoURL}></image>
+                  <div>
+                    <img
+                      className="h-10 w-10 rounded-full"
+                      src={user?.photoURL}
+                      alt=""
+                    />
                   </div>
                 ) : (
                   <FaUser></FaUser>
@@ -209,6 +216,19 @@ const Header = () => {
                           <span className="text-blue-700">Plat</span>
                           <span className="text-red-500">form</span>
                         </span>
+                        <div className="ml-10">
+                          {user?.photoURL ? (
+                            <div>
+                              <img
+                                className="h-10 w-10 rounded-full"
+                                src={user?.photoURL}
+                                alt=""
+                              />
+                            </div>
+                          ) : (
+                            <FaUser></FaUser>
+                          )}
+                        </div>
                       </NavLink>
                     </div>
                     <div>
@@ -315,17 +335,7 @@ const Header = () => {
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink>
-                          {user?.photoURL2 ? (
-                            <image
-                              style={{ height: "30px" }}
-                              roundedCircle
-                              src={user?.photoURL}
-                            ></image>
-                          ) : (
-                            <FaUser></FaUser>
-                          )}
-                        </NavLink>
+                        <small className="font-bold">{user?.displayName}</small>{" "}
                       </li>
                     </ul>
                   </nav>

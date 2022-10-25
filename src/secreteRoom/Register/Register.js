@@ -17,7 +17,7 @@ const Register = () => {
     const password2 = form.confrimPassword.value;
     // console.log(name, email, password, password2);
 
-    if (password != password2) {
+    if (password !== password2) {
       alert("can not match your password!");
       return;
     }
