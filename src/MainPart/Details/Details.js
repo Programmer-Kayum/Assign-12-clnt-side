@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { jsPDF } from "jspdf";
 
 const Details = () => {
   const allDetails = useLoaderData();
