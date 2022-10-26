@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import "./Header";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -11,6 +12,22 @@ const Header = () => {
       .catch((error) => console.error(error));
   };
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [buttonToggle, setButtonToggle] = useState(false);
+  const [buttonText, setButtonText] = useState();
+
+  const handleToggole = () => {
+    buttonToggle ? (
+      <>
+        {setButtonToggle(false)}
+        {setButtonText("make dark")}
+      </>
+    ) : (
+      <>
+        {setButtonToggle(true)}
+        {setButtonText("make light")}
+      </>
+    );
+  };
   return (
     <div className="lg:bg-gradient-to-r from-cyan-400 to-blue-400 lg:text-2xl">
       {/* // <div className=" lg:text-2xl"> */}
@@ -106,13 +123,11 @@ const Header = () => {
               <NavLink
                 to="/theme"
                 aria-label="Theme"
+                onClick={handleToggole}
                 title="Theme"
-                className={({ isActive }) =>
-                  isActive
-                    ? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                    : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                }
+                className={`toggle-btn ${buttonToggle ? "dark" : "light"}`}
               >
+                {buttonText}
                 Theme
               </NavLink>
             </li>
@@ -138,9 +153,7 @@ const Header = () => {
                 </>
               </NavLink>
             </li>
-            <li>
-              <small className="font-bold">{user?.displayName}</small>{" "}
-            </li>
+
             <li>
               <>
                 {user?.photoURL ? (
@@ -148,6 +161,7 @@ const Header = () => {
                     <img
                       className="h-10 w-10 rounded-full"
                       src={user?.photoURL}
+                      title={user?.displayName}
                       alt=""
                     />
                   </div>
@@ -220,8 +234,9 @@ const Header = () => {
                           {user?.photoURL ? (
                             <div>
                               <img
-                                className="h-10 w-10 rounded-full"
+                                className="h-10 w-16 rounded-full"
                                 src={user?.photoURL}
+                                title={user?.displayName}
                                 alt=""
                               />
                             </div>
@@ -333,9 +348,6 @@ const Header = () => {
                             )}
                           </>
                         </NavLink>
-                      </li>
-                      <li>
-                        <small className="font-bold">{user?.displayName}</small>{" "}
                       </li>
                     </ul>
                   </nav>

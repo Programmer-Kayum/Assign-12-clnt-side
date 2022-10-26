@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import MainTopics from "../MainTopics/MainTopics";
 
 const Details = () => {
   const allDetails = useLoaderData();
