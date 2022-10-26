@@ -1,9 +1,14 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
 
 const Details = () => {
+  const allDetails = useLoaderData();
+  console.log(allDetails);
   return (
-    <div>
-      <h2>Details section</h2>
+    <div className="lg:flex">
+      <div></div>
+
+      <div></div>
     </div>
   );
 };

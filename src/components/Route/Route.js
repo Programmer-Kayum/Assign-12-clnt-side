@@ -43,8 +43,11 @@ export const router = createBrowserRouter([
         element: <Login></Login>,
       },
       {
-        path: "/details",
+        path: "/details/:id",
         element: <Details></Details>,
+        loader: async ({ params }) => {
+          return fetch(`http://localhost:5000/details/${params.id}`);
+        },
       },
     ],
   },

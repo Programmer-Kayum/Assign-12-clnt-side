@@ -4,7 +4,7 @@ import MainTopics from "../../MainPart/MainTopics/MainTopics";
 import RightSide from "../RightSide/RightSide";
 
 const Courses = (params) => {
-  const allTopics = useLoaderData(params).data;
+  const allTopics = useLoaderData(params);
   //   console.log(allTopics);
   return (
     <div className="lg:flex">

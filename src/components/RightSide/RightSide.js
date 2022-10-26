@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 const RightSide = (params) => {
   const topics = params.topics;
-  console.log(topics);
   return (
     <div className="mb-5 mt-4">
       <div className="card lg:w-96 bg-base-100 mx-4 shadow-xl">
