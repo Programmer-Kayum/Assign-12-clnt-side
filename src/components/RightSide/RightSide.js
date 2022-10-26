@@ -11,9 +11,9 @@ const RightSide = (params) => {
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title text-2xl font-bold">{topics.name}</h2>
-          <p>{topics.details}</p>
+          <p>{topics.details.slice(0, 100)}.....</p>
           <div className="card-actions">
-            <Link to="/details">
+            <Link to={`/details/${topics.id}`}>
               <button className="btn btn-primary hover:bg-orange-600">
                 Learn More
               </button>

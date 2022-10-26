@@ -5,7 +5,7 @@ import RightSide from "../RightSide/RightSide";
 
 const Courses = (params) => {
   const allTopics = useLoaderData(params);
-  //   console.log(allTopics);
+
   return (
     <div className="lg:flex">
       <div className="lg:w-5/12 lg:px-20 lg:pb-32 lg:pt-10 mt-2 ml-2 rounded-lg bg-gray-400 shadow-2xl border-2">
