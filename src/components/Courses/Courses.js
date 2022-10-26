@@ -8,12 +8,12 @@ const Courses = (params) => {
   //   console.log(allTopics);
   return (
     <div className="lg:flex">
-      <div className="lg:w-5/12 lg:px-20 pb-32 pt-10 mt-2 ml-2 rounded-lg bg-gray-400 shadow-2xl border-2">
+      <div className="lg:w-5/12 lg:px-20 lg:pb-32 lg:pt-10 mt-2 ml-2 rounded-lg bg-gray-400 shadow-2xl border-2">
         {allTopics.map((topics) => (
           <MainTopics key="topics.id" topics={topics}></MainTopics>
         ))}
       </div>
-      <div className=" grid grid-cols-2 m-2 px-10  lg:w-full">
+      <div className=" lg:grid lg:grid-cols-2 lg:m-2 lg:px-10  lg:w-full">
         {allTopics.map((topics) => (
           <RightSide key="topics.id" topics={topics}></RightSide>
         ))}

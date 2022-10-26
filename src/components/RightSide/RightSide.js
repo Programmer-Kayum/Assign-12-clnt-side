@@ -1,19 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const RightSide = (params) => {
   const topics = params.topics;
   console.log(topics);
   return (
-    <div className="mb-5">
-      <div className="card w-96 bg-base-100 shadow-xl">
-        <figure className="px-10 pt-10">
-          <img src={topics.logo} alt="Shoes" className="rounded-xl h-40" />
+    <div className="mb-5 mt-4">
+      <div className="card lg:w-96 bg-base-100 mx-4 shadow-xl">
+        <figure className="px-10 pt-10 bg-gray-500">
+          <img src={topics.logo} alt="Shoes" className="rounded-xl h-40 " />
         </figure>
         <div className="card-body items-center text-center">
-          <h2 className="card-title">{topics.name}</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <h2 className="card-title text-2xl font-bold">{topics.name}</h2>
+          <p>{topics.details}</p>
           <div className="card-actions">
-            <button className="btn btn-primary">Learn More</button>
+            <Link to="/details">
+              <button className="btn btn-primary hover:bg-orange-600">
+                Learn More
+              </button>
+            </Link>
           </div>
         </div>
       </div>

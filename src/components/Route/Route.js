@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
+import Details from "../../MainPart/Details/Details";
 import Login from "../../secreteRoom/Login/Login";
 import PrivateRoute from "../../secreteRoom/PrivateRoute/PrivateRoute";
 import Register from "../../secreteRoom/Register/Register";
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/details",
+        element: <Details></Details>,
       },
     ],
   },
