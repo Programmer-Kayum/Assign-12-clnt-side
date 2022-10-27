@@ -74,7 +74,9 @@ const Header = () => {
                     : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                 }
               >
-                Home
+                <p className=" hover:bg-orange-300 rounded-lg px-2 py-1 font-bold ">
+                  Home
+                </p>
               </NavLink>
             </li>
             <li>
@@ -88,7 +90,9 @@ const Header = () => {
                     : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                 }
               >
-                Courses
+                <p className=" hover:bg-orange-300 rounded-lg px-2 py-1 font-bold ">
+                  Courses
+                </p>
               </NavLink>
             </li>
             <li>
@@ -102,7 +106,9 @@ const Header = () => {
                     : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                 }
               >
-                FAQ
+                <p className=" hover:bg-orange-300 rounded-lg px-2 py-1 font-bold ">
+                  FAQ
+                </p>
               </NavLink>
             </li>
             <li>
@@ -116,7 +122,9 @@ const Header = () => {
                     : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                 }
               >
-                Blog
+                <p className=" hover:bg-orange-300 rounded-lg px-2 py-1 font-bold ">
+                  Blog
+                </p>
               </NavLink>
             </li>
             <li>
@@ -128,7 +136,9 @@ const Header = () => {
                 className={`toggle-btn ${buttonToggle ? "dark" : "light"}`}
               >
                 {buttonText}
-                Theme
+                <p className=" hover:bg-orange-300 rounded-lg px-2 py-1 font-bold ">
+                  Theme
+                </p>
               </NavLink>
             </li>
             <li>
@@ -140,13 +150,17 @@ const Header = () => {
                         className="text-2xl font-bold"
                         onClick={handleLogOut}
                       >
-                        Log out
+                        <p className=" hover:bg-orange-300 rounded-lg px-2 py-1 font-bold ">
+                          Log out
+                        </p>
                       </div>
                     </>
                   ) : (
                     <>
                       <NavLink to="/login">
-                        <span className="text-2xl font-bold">Login</span>{" "}
+                        <span className="text-2xl font-bold hover:bg-orange-300 rounded-lg px-2 py-1 ">
+                          Login
+                        </span>
                       </NavLink>
                     </>
                   )}
@@ -178,10 +192,10 @@ const Header = () => {
             <button
               aria-label="Open Menu"
               title="Open Menu"
-              className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
+              className="p-2 bg-blue-500  -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
               onClick={() => setIsMenuOpen(true)}
             >
-              <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
+              <svg className="w-5 text-white" viewBox="0 0 24 24">
                 <path
                   fill="currentColor"
                   d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
@@ -275,7 +289,9 @@ const Header = () => {
                               : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                           }
                         >
-                          Home
+                          <p className=" hover:bg-blue-500 px-10 rounded-xl text-lg font-bold ">
+                            Home
+                          </p>
                         </NavLink>
                       </li>
                       <li>
@@ -289,7 +305,9 @@ const Header = () => {
                               : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                           }
                         >
-                          Courses
+                          <p className=" hover:bg-blue-500 px-10 rounded-xl text-lg font-bold ">
+                            Courses
+                          </p>
                         </NavLink>
                       </li>
                       <li>
@@ -303,7 +321,9 @@ const Header = () => {
                               : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                           }
                         >
-                          FAQ
+                          <p className=" hover:bg-blue-500 px-10 rounded-xl text-lg font-bold ">
+                            FAQ
+                          </p>
                         </NavLink>
                       </li>
                       <li>
@@ -317,7 +337,9 @@ const Header = () => {
                               : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                           }
                         >
-                          Blog
+                          <p className=" hover:bg-blue-500 px-10 rounded-xl text-lg font-bold ">
+                            Blog
+                          </p>
                         </NavLink>
                       </li>
                       <li>
@@ -327,23 +349,35 @@ const Header = () => {
                           title="Theme"
                           className={({ isActive }) =>
                             isActive
-                              ? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              ? "font-medium tracking-wide text-orange-600-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                               : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                           }
                         >
-                          Theme
+                          <p className=" hover:bg-blue-500 px-10 rounded-xl text-lg font-bold ">
+                            Theme
+                          </p>
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink>
+                        <NavLink className="text-lg font-bold">
                           <>
                             {user?.uid ? (
                               <>
-                                <p onClick={handleLogOut}>Log out</p>
+                                <p
+                                  className=" hover:bg-blue-500 px-10 rounded-xl "
+                                  onClick={handleLogOut}
+                                >
+                                  Log out
+                                </p>
                               </>
                             ) : (
                               <>
-                                <NavLink to="/login">Login</NavLink>
+                                <NavLink
+                                  className=" hover:bg-blue-500 px-10 rounded-xl "
+                                  to="/login"
+                                >
+                                  Login
+                                </NavLink>
                               </>
                             )}
                           </>
