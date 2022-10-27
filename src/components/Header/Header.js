@@ -2,7 +2,8 @@ import React, { useContext, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
-import "./Header";
+
+import { DarkModeToggle } from "react-dark-mode-toggle-2";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -12,12 +13,8 @@ const Header = () => {
       .catch((error) => console.error(error));
   };
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [buttonToggle, setButtonToggle] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const handleToggole = () => {
-    buttonToggle ? setButtonToggle(false) : setButtonToggle(true);
-    console.log(buttonToggle);
-  };
   return (
     <div className="lg:bg-gradient-to-r from-cyan-400 to-blue-400 lg:text-2xl">
       <div className="px-2 py-5  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-2">
@@ -162,17 +159,12 @@ const Header = () => {
             </li>
 
             <li>
-              <section className={buttonToggle ? "dark" : "light"}>
-                <div onClick={handleToggole} class="form-control">
-                  <label class="label cursor-pointer">
-                    <input
-                      type="checkbox"
-                      class="toggle toggle-primary"
-                      checked
-                    />
-                  </label>
-                </div>
-              </section>
+              <DarkModeToggle
+                className="pb-0"
+                onChange={setIsDarkMode}
+                isDarkMode={isDarkMode}
+                // size={20}
+              />
             </li>
           </ul>
 
@@ -333,22 +325,6 @@ const Header = () => {
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink
-                          to="/theme"
-                          aria-label="Theme"
-                          title="Theme"
-                          className={({ isActive }) =>
-                            isActive
-                              ? "font-medium tracking-wide text-orange-600-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                              : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          }
-                        >
-                          <p className=" hover:bg-blue-500 px-10 rounded-xl text-lg font-bold ">
-                            Theme
-                          </p>
-                        </NavLink>
-                      </li>
-                      <li>
                         <NavLink className="text-lg font-bold">
                           <>
                             {user?.uid ? (
@@ -362,16 +338,22 @@ const Header = () => {
                               </>
                             ) : (
                               <>
-                                <NavLink
-                                  className=" hover:bg-blue-500 px-10 rounded-xl "
-                                  to="/login"
-                                >
-                                  Login
+                                <NavLink to="/login">
+                                  <p className=" hover:bg-blue-500  px-10  rounded-xl ">
+                                    Login
+                                  </p>
                                 </NavLink>
                               </>
                             )}
                           </>
                         </NavLink>
+                      </li>
+                      <li className="ml-10">
+                        <DarkModeToggle
+                          onChange={setIsDarkMode}
+                          isDarkMode={isDarkMode}
+                          size={50}
+                        />
                       </li>
                     </ul>
                   </nav>

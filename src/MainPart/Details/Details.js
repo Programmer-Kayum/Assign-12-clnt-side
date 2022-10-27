@@ -15,7 +15,7 @@ const Details = () => {
           <div>
             <figure>
               <img
-                className="lg:h-72 lg:w-80 lg:mt-10 rounded-lg h-80 w-80 bg-gray-600"
+                className="lg:h-80 lg:w-80 lg:mt-10 rounded-lg   bg-gray-600"
                 src={logo}
                 alt="Movie"
               />
@@ -24,7 +24,7 @@ const Details = () => {
               <Pdf targetRef={ref} filename={name}>
                 {({ toPdf }) => (
                   <button onClick={toPdf}>
-                    <p className="border-2 rounded-lg bg-blue-700 text-white px-[83px] hover:bg-orange-700 py-2 text-2xl ">
+                    <p className="border-2 rounded-lg bg-blue-700 text-white lg:px-[83px] px-[143px] mt-2 hover:bg-orange-700 py-2 text-2xl w-full ">
                       Download Pdf
                     </p>
                   </button>

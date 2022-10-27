@@ -28,9 +28,7 @@ export const router = createBrowserRouter([
       {
         path: "/courses",
         element: <Courses></Courses>,
-        loader: async () => {
-          return fetch("http://localhost:5000/alltopics");
-        },
+        loader: () => fetch("https://edx-server-site.vercel.app/course"),
       },
       {
         path: "/faq",
@@ -49,10 +47,12 @@ export const router = createBrowserRouter([
         element: <Login></Login>,
       },
       {
-        path: "/details/:id",
+        path: `/details/:id`,
         element: <Details></Details>,
         loader: async ({ params }) => {
-          return fetch(`http://localhost:5000/details/${params.id}`);
+          return fetch(
+            `https://edx-server-site.vercel.app/course/${params.id}`
+          );
         },
       },
       {
