@@ -352,7 +352,7 @@ const Header = () => {
                         <DarkModeToggle
                           onChange={setIsDarkMode}
                           isDarkMode={isDarkMode}
-                          size={50}
+                          size={60}
                         />
                       </li>
                     </ul>
