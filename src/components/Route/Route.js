@@ -7,7 +7,9 @@ import Register from "../../secreteRoom/Register/Register";
 import Blog from "../Blog/Blog";
 import Courses from "../Courses/Courses";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import Faq from "../Faq/Faq";
 import Home from "../Home/Home";
+import Premium from "../Premium/Premium";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +33,10 @@ export const router = createBrowserRouter([
         },
       },
       {
+        path: "/faq",
+        element: <Faq></Faq>,
+      },
+      {
         path: "/blog",
         element: <Blog></Blog>,
       },
@@ -44,14 +50,18 @@ export const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: (
-          <PrivateRoute>
-            <Details></Details>
-          </PrivateRoute>
-        ),
+        element: <Details></Details>,
         loader: async ({ params }) => {
           return fetch(`http://localhost:5000/details/${params.id}`);
         },
+      },
+      {
+        path: "/premium",
+        element: (
+          <PrivateRoute>
+            <Premium></Premium>
+          </PrivateRoute>
+        ),
       },
     ],
   },

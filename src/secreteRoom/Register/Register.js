@@ -1,12 +1,13 @@
 // import { error } from "daisyui/src/colors";
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
   const { createUsers, updateUserProfile } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const Navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -28,6 +29,7 @@ const Register = () => {
         console.log(user);
         setError("");
         form.reset();
+        Navigate("/login");
         handleUpdateUserProfile(name, photoURL);
         // handleEmailVerification();
         // toast.success('Please verify your email address.')

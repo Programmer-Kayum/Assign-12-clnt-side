@@ -13,24 +13,13 @@ const Header = () => {
   };
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [buttonToggle, setButtonToggle] = useState(false);
-  const [buttonText, setButtonText] = useState();
 
   const handleToggole = () => {
-    buttonToggle ? (
-      <>
-        {setButtonToggle(false)}
-        {setButtonText("make dark")}
-      </>
-    ) : (
-      <>
-        {setButtonToggle(true)}
-        {setButtonText("make light")}
-      </>
-    );
+    buttonToggle ? setButtonToggle(false) : setButtonToggle(true);
+    console.log(buttonToggle);
   };
   return (
     <div className="lg:bg-gradient-to-r from-cyan-400 to-blue-400 lg:text-2xl">
-      {/* // <div className=" lg:text-2xl"> */}
       <div className="px-2 py-5  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-2">
         <div className="relative flex items-center justify-between">
           <NavLink
@@ -127,20 +116,7 @@ const Header = () => {
                 </p>
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/theme"
-                aria-label="Theme"
-                onClick={handleToggole}
-                title="Theme"
-                className={`toggle-btn ${buttonToggle ? "dark" : "light"}`}
-              >
-                {buttonText}
-                <p className=" hover:bg-orange-300 rounded-lg px-2 py-1 font-bold ">
-                  Theme
-                </p>
-              </NavLink>
-            </li>
+
             <li>
               <NavLink>
                 <>
@@ -184,9 +160,23 @@ const Header = () => {
                 )}
               </>
             </li>
+
+            <li>
+              <section className={buttonToggle ? "dark" : "light"}>
+                <div onClick={handleToggole} class="form-control">
+                  <label class="label cursor-pointer">
+                    <input
+                      type="checkbox"
+                      class="toggle toggle-primary"
+                      checked
+                    />
+                  </label>
+                </div>
+              </section>
+            </li>
           </ul>
 
-          {/* ---------------------- */}
+          {/* --------------------------------------------------------------------------------------------------------------------- */}
 
           <div className="lg:hidden">
             <button

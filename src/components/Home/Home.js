@@ -3,7 +3,7 @@ import img from "../../Image/favicon.jpg";
 
 const Home = () => {
   return (
-    <div className="lg:m-5 m-2  border-2 rounded-lg lg:pb-32 pb-5 lg:pt-20 pt-10 bg-gradient-to-r from-violet-500 to-fuchsia-500">
+    <div className="lg:m-5 m-2  border-2 rounded-lg lg:pb-32 pb-5 lg:pt-20 pt-10 bg-gradient-to-r from-sky-500 to-indigo-500">
       <div>
         <h1 className="lg:text-6xl text-3xl font-bold text-center">
           <span className="text-orange-800">Welcome</span> To our{" "}
